@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 
 export function LoginPage() {
+  const navigate = useNavigate();
+
+  
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="flex flex-col bg-white p-6 rounded-2xl text-black">
@@ -17,7 +22,14 @@ export function LoginPage() {
         </form>
         <div className="flex flex-col items-center mt-4">
           <p>Don't have an account?</p>
-          <a href="/register" className="text-blue-500 hover:underline">Register</a>
+          <a href="/register" className="text-blue-500 hover:underline" 
+            onClick={(e) => {
+              e.preventDefault()
+              navigate("/register")
+            }}
+          >
+            Register
+          </a>
         </div>
       </div>
     </div>
