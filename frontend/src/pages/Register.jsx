@@ -9,17 +9,17 @@ export function RegisterPage() {
     username: '',
     email: '',
     password: ''
-  });
+  })
 
   const handleRegister = async (e) => {
     e.preventDefault()
     try {
-      const response = await registerService(dataRegister.username, dataRegister.email, dataRegister.password);
+      const response = await registerService(dataRegister.username, dataRegister.email, dataRegister.password)
       if (response.status === 201) {
-        console.log("Registration successful");
+        console.log("Registration successful")
       }
     } catch (error) {
-      console.error("Error registering:", error);
+      console.error("Error registering:", error)
     }
   }
 
