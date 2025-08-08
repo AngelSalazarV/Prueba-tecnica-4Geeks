@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../services/AuthServices";
+import { Toaster, toast } from "sonner";
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -21,11 +22,14 @@ export function LoginPage() {
       }
     } catch (error) {
       console.error("Error logging in:", error)
+      toast.error(error.message)
     }
   }
 
 
   return (
+    <>
+    <Toaster richColors />
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="flex flex-col bg-white p-6 rounded-2xl text-black">
         <div className="flex items-center justify-center ">
@@ -71,5 +75,6 @@ export function LoginPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
