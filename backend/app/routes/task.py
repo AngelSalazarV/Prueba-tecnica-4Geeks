@@ -15,6 +15,7 @@ def create_task():
   task = Task(
     title = data['title'],
     label = data['label'],
+    completed = data.get('completed', False),
     user_id = user_id
   )
   db.session.add(task)

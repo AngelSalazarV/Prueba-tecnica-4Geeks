@@ -11,11 +11,12 @@ export function LoginPage() {
   })
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const data = await loginService(loginData.email, loginData.password)
       if (data.token) {
         console.log("Login successful", data)
+        localStorage.setItem('taskToken', data.token)
         navigate("/")
       }
     } catch (error) {
